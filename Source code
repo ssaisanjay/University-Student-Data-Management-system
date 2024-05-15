@@ -1,0 +1,25 @@
+CREATE TABLE Students(
+StudentId INT PRIMARY KEY,
+Name VARCHAR(25),
+DOB DATE,
+Gender VARCHAR(10),
+Email VARCHAR(25),
+Major VARCHAR(10),
+PhoneNumber VARCHAR(15),
+Address VARCHAR(20),
+City VARCHAR(20),
+State VARCHAR(10)
+);
+CREATE TABLE Courses(
+CourseId INT PRIMARY KEY,
+CourseName VARCHAR(15),
+Department VARCHAR(10),
+Credits INT
+);
+CREATE TABLE Enrollments(
+StudentId INT,
+CourseId INT,
+PRIMARY KEY (StudentId, CourseId),
+FOREIGN KEY (StudentId) REFERENCES Students(StudentId),
+FOREIGN KEY (CourseId) REFERENCES Courses(CourseId)
+);
